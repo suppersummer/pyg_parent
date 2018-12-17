@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	<!--匿名访问-->
+	<http pattern="/login.html" security="none"></http>
+	<http pattern="/css/**" security="none"></http>
+	<http pattern="/img/**" security="none"></http>
+	<http pattern="/js/**" security="none"></http>
+	<http pattern="/plugins/**" security="none"></http>
+	<!--拦截规则-->
+	<http use-expressions="false" ><!--use-expressions="false" 默认是true使用spel表达式-->
+		<intercept-url pattern="/**" access="ROLE_ADMIN"/>
+		<form-login login-page="/login.html" default-target-url="/admin/index.html" always-use-default-target="true" authentication-failure-url="/login.html"></form-login>
+		<csrf disabled="true"></csrf>
+		<headers>
+			<!--ifram内嵌框架，默认是被拒绝的DENY，就不能转跳 SAMEORIGIN:同源（当前工程）ALLOW-FROM:可以支持外网-->
+			<frame-options policy="SAMEORIGIN"></frame-options>
+		</headers>
+		<!--logout标签会创建logoutFilter 退出监控 在按注销时转跳页面/logout就可以了-->
+		<logout logout-success-url="/login.html"></logout>
+	</http>
+	<!--认证管理器-->
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="admin" password="123456" authorities="ROLE_ADMIN"></user>
+				<user name="jiangsha" password="199577" authorities="ROLE_ADMIN"></user>
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+
+</beans:beans>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+			 xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+		<!--匿名访问-->
+	<http pattern="/*.html" security="none"></http>
+	<http pattern="/css/**" security="none"></http>
+	<http pattern="/seller/add.do" security="none"/>
+	<http pattern="/img/**" security="none"></http>
+	<http pattern="/js/**" security="none"></http>
+	<http pattern="/plugins/**" security="none"></http>
+	<!--拦截条件-->
+	<http>
+		<intercept-url pattern="/**" access="hasRole('ROLE_SELLER')"/>
+		<form-login login-page="/shoplogin.html" default-target-url="/admin/index.html"
+					always-use-default-target="true"
+					authentication-failure-url="/shoplogin.html"/>
+		<!--把禁止转跳关闭-  csrf跨站点请求伪造-->
+		<csrf disabled="true"/>
+		<headers >
+			<frame-options policy="SAMEORIGIN"/>
+		</headers>
+		<!--退出登录标签-->
+		<logout></logout>
+
+	</http>
+	<!--authentication认证管理器-->
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsServiceImpl">
+			<!--提供用户-->
+			<!--<user-service>-->
+				<!--<user name="seller" password="123" authorities="ROLE_SELLER"/>-->
+			<!--</user-service>-->
+			<password-encoder ref="bCryptPasswordEncoder"></password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+<!--密码加密 BCrypt的bean  BCryptPasswordEncoder-->
+	<beans:bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+	<!--扫描方式代替注解方式-->
+<!--&lt;!&ndash;自定义用户认证类&ndash;&gt;-->
+	<!--<beans:bean id="userDetailsService" class="com.pyg.shop.service.UserDetailsServiceImpl">-->
+		<!--<beans:property name="sellerService" ref="sellerService"></beans:property>-->
+	<!--</beans:bean>-->
+   <!--<dubbo:application name="pyg_shop_web" ></dubbo:application>-->
+	<!--<dubbo:registry address="zookeeper://192.168.25.128:2181"/>-->
+	<!--<dubbo:reference id="sellerService" interface="com.pyg.sellergoods.service.SellerService"/>-->
+
+	<dubbo:application name="pyg_shop_web"/>
+	<dubbo:registry address="zookeeper://192.168.25.128:2181"/>
+	<dubbo:annotation package="com.pyg.shop.service"/><!--扫描方式-->
+
+</beans:beans>

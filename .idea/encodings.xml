@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../day52/itcart_sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_cart_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_cart_web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_content_interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_content_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_order_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_page_interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_page_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_page_web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_pay_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_portal_web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_search_interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_search_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_search_web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_seckill_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_seckill_web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_solr_util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_task_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_user_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../pygdemo/casclient_demo1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../pygdemo/casclient_demo2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../pygdemo/casclient_demo3" charset="UTF-8" />
+    <file url="file://E:/大数据/峰哥/spring_data_solr_demo" charset="UTF-8" />
+    <file url="file://E:/大数据/峰哥/spring_data_solr_demo/freemarker_demo" charset="UTF-8" />
+    <file url="file://E:/大数据/峰哥/spring_data_solr_demo/jms_demo" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pyg_content_web:war exploded">
+    <output-path>$PROJECT_DIR$/pyg_content_web/target/pyg_content_web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pyg_content_service" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/pyg_content_service/target/pyg_content_web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="pyg_content_service/web/Web" />
+    </root>
+  </artifact>
+</component>
